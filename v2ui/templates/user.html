@@ -1,0 +1,70 @@
+{%extends "base.html" %}
+{% block title %}user{% endblock %}
+{% block body %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+            <p>用户名：{{ user_name }}</p>
+            <p>余额：{{ money_left }}</p>
+            <div>
+            <a id="modal-994244" href="#modal-container-994244" role="button" class="btn" data-toggle="modal">点击充值</a>
+			<div class="modal fade" id="modal-container-994244" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">
+								充值
+							</h5>
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+                            <label class="align-middle">充值金额</label>
+                                <select name="charge_money" class="form-control" id="charge_money" >
+                                    <option selected="selected" value="30">30</option>
+                                    <option value="100">100</option>
+                                    <option value="100">200</option>
+                                    <option value="100">300</option>
+                                    <option value="500">500</option>
+                                    <option value="500">1000</option>
+                                </select>
+                            <div class="align-middle">
+                                <p>充值方式</p>
+                                <select name="charge_type" class="form-control" id="charge_type" >
+                                <option selected="selected" value="1">微信</option>
+                                <option value="2">支付宝</option>
+                                </select>
+                            </div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">
+								充值
+							</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
+								取消
+							</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+            </div>
+		</div>
+
+
+		<div class="col-md-8">
+            <p>已购线路</p>
+            {% for id in line_id%}
+                <p>线路ID:{{ id}}</p>
+                <p>线路地区:{{ id}}</p>
+                <p>过期日期:{{ id}}</p>
+                <p>线路二维码:</p>
+                <svg></svg>
+                <img src="http://www.weixuecn.cn/uploads/allimg/c160609/14A4I164XM0-3NT2.png">
+            {% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
